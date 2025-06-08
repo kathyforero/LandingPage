@@ -1,0 +1,139 @@
+/* Reset y fuentes */
+body {
+  margin: 0;
+  font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
+  background-color: #fcf8f8;
+  color: #1b0e0e;
+}
+
+/* Estructura principal */
+.main-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 2.5rem;
+  border-bottom: 1px solid #f3e7e8;
+  background-color: #fcf8f8;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 1.125rem;
+  font-weight: bold;
+}
+
+.logo img {
+  width: 5rem;
+  height: 5rem;
+  color: #1b0e0e;
+}
+
+.nav {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: #1b0e0e;
+}
+
+.btn {
+  height: 2.5rem;
+  padding: 0 1rem;
+  font-size: 0.875rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 9999px;
+  cursor: pointer;
+}
+
+.btn.primary {
+  background-color: #e92932;
+  color: #fcf8f8;
+}
+
+.btn.secondary {
+  background-color: #f3e7e8;
+  color: #1b0e0e;
+}
+
+.hero {
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 25%),
+    url('https://lh3.googleusercontent.com/aida-public/AB6AXuBbV0xr19BVK3z79kKasZW8rTskoCMFIfyNJw50zq3e9jT_52HWspLKwlc86C-WVRt6eCG8mjETEdiq25Cgn6iITLzNO5zajFLerw6yY6SpmPu898gftCZ6ySvrZ045Yn3SaBxMfOLj8E2CDsLEx6I9mCD7QA1zy3Y1NMpxSlJzUiPD-p91qcIFMccpjE03aX6S_ElrnvKAIbe2CIiMEtgLzO8XUCu_m0eN6nDzn1nsMeMHJfVw_OUx0iq6p13nfhwZYHqvAevaqaTK')
+    no-repeat center center / cover;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  height: 220px;
+  padding: 1rem;
+  color: white;
+  font-size: 1.75rem;
+  font-weight: bold;
+  max-width: 1200px;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.menu-button {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.featured {
+  padding: 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.featured h2 {
+  font-size: 1.375rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.cards {
+  display: flex;
+  gap: 1rem;
+  overflow-x: auto;
+  padding-bottom: 1rem;
+}
+
+.card {
+  min-width: 200px;
+  max-width: 200px;
+  flex: 0 0 auto; /* <- importante para que no se achiquen */
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.card .image {
+  aspect-ratio: 1 / 1;
+  background-size: cover;
+  background-position: center;
+  border-radius: 0.75rem;
+}
+
+.card .title {
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.card .desc {
+  font-size: 0.875rem;
+  color: #994d51;
+}
