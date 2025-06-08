@@ -26,10 +26,9 @@
         <img id="logo" src="/assets/logo.svg" alt="logo.svg">
       </div>
       <nav class="nav">
-        <a href="#">Inicio</a>
-        <a href="#">Contacto</a>
-        <button class="btn primary">Sobre Nosotros</button>
-        <button class="btn secondary">Menú</button>
+        <a href="#sobre-nosotros" class="btn primary">Sobre Nosotros</a>
+        <a href="#menu" class="btn secondary">Menú</a>
+        <a href="#contacto">Contacto</a>
       </nav>
     </header>
 
@@ -39,31 +38,143 @@
       </div>
     </section>
 
-    <section class="menu-button">
-      <button class="btn primary">Ver Menú</button>
-    </section>
-
-    <section class="featured">
-      <h2>Los Más Populares</h2>
-      <div class="cards">
-        <div class="card">
-          <div class="image" style="background-image: url('./assets/pastel.png');"></div>
-          <p class="title">Grilled Salmon with Asparagus</p>
-          <p class="desc">Freshly grilled salmon with a side of asparagus.</p>
-        </div>
-        <div class="card">
-          <div class="image" style="background-image: url('./assets/shawarma.png');"></div>
-          <p class="title">Roasted Duck with Cherry Sauce</p>
-          <p class="desc">Roasted duck with a rich cherry sauce.</p>
-        </div>
-        <div class="card">
-          <div class="image" style="background-image: url('./assets/tres_leches.png');"></div>
-          <p class="title">Vegetable Paella</p>
-          <p class="desc">A flavorful vegetarian paella.</p>
+    <section id="sobre-nosotros" class="sobre-nosotros">
+      <h2>Sobre Nosotros</h2>
+      <div class="contenido">
+        <img src="./assets/sobre_nosotros.png" alt="sobre_nosotros.png" />
+        <div class="texto">
+          <p>
+            En Casa Food Guayaquil nos apasiona brindar experiencias culinarias únicas. Combinamos tradición y creatividad
+            para ofrecer platos llenos de sabor y calidad. Nuestro compromiso es con la frescura de los ingredientes, el
+            amor por la cocina y la sonrisa de cada cliente.
+          </p>  
+          <p> Al momento disponemos una gran diversidad de opciones para degustar: </p> 
+          <ul>
+          <li>Postres Varios</li>
+          <li>Comida Gourmet</li>
+          <li>Platos Tradicionales</li>
+          <li>Desayunos</li>
+          </ul>
         </div>
       </div>
     </section>
+
+    <section class="menu-button">
+      <a href="#menu" class="btn primary">Ver Menú</a>
+    </section>
+
+    <section id="menu" class="featured">
+      <h2>Menú</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/pastel.png');"></div>
+          <p class="title">Torta Decorada Con Motivo</p>
+          <p class="desc">Una esponjosa y deliciosa torta hecha a medida, decorada cuidadosamente según la ocasión. Ideal para cumpleaños, aniversarios o cualquier celebración especial.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/shawarma.png');"></div>
+          <p class="title">Mix de Shawarma Casero con Tortillas para Tacos, Guacamole y Queso</p>
+          <p class="desc">Una fusión irresistible: shawarma sazonado al estilo casero, acompañado de suaves tortillas, cremoso guacamole y queso fresco. Perfecto para compartir.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/tres_leches.png');"></div>
+          <p class="title">Dulce de Tres Leches</p>
+          <p class="desc">Nuestro clásico postre latino: bizcocho empapado en tres tipos de leche, con cobertura de crema y un toque de canela. Dulce, suave y tradicional.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/brigadeiros.png');"></div>
+          <p class="title">Brigadeiro de Uva</p>
+          <p class="desc">Una combinación única de uvas frescas cubiertas con dulce de leche condensada y chocolate. Un bocado sofisticado y sorprendente.</p>
+        </div>
+      </div>
+    </section>
+        <section id="contacto" class="featured">
+      <h2>Formulario de Contacto</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required />
+
+        <label for="tipo">Tipo de Consulta:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="pedido">Pedido</option>
+          <option value="sugerencia">Sugerencia</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit" class="btn primary">Enviar</button>
+      </form>
+      <div id="respuesta"></div>
+    </section>
+
+    <section id="resumen" class="featured">
+      <h2>Resúmenes de Consultas</h2>
+      <table id="tabla-resumen">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Mensaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Datos se insertarán aquí -->
+        </tbody>
+      </table>
+    </section>
+
   </div>
+  </div>
+   <script>
+      // POST (Formulario)
+      document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = {
+          nombre: document.getElementById("nombre").value,
+          correo: document.getElementById("correo").value,
+          tipo: document.getElementById("tipo").value,
+          mensaje: document.getElementById("mensaje").value,
+        };
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((json) => {
+            document.getElementById("respuesta").innerText = "¡Formulario enviado con éxito!";
+            document.getElementById("contact-form").reset();
+          })
+          .catch((err) => {
+            document.getElementById("respuesta").innerText = "Hubo un error al enviar el formulario.";
+          });
+      });
+
+      // GET (Mensajes simulados desde API externa)
+      fetch("https://jsonplaceholder.typicode.com/comments?_limit=5")
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector("#tabla-resumen tbody");
+          data.forEach(item => {
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
+              <td>${item.name}</td>
+              <td>${item.email}</td>
+              <td>Otro</td>
+              <td>${item.body}</td>
+            `;
+            tbody.appendChild(fila);
+          });
+        });
+    </script>
 </body>
 
 </html>
