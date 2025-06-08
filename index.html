@@ -2,141 +2,179 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <title>My App</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Landing Page para Casa Food Guayaquil">
+  <meta name="keywords" content="comida, postres, almuerzo, dulce, antojo">
+  <meta name="author" content="Katherine Forero & David Ramírez">
+  <link rel="icon" type="image/png" href="./assets/logo.svg">
+  <title>Casa Food Guayaquil</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="./stylesheets/styles.css">
 </head>
 
-<body class="w-full h-screen">
-    <nav
-        class="absolute top-0 left-0 w-full h-20 bg-transparent backdrop-blur-md shadow-lg flex justify-between p-5 items-center z-50">
-        <div class="mr-5">
-           <h1 class="text-xl md:text-3xl text-white font-semibold">F.O.O.D.I.E</h1>
-        </div>
+<body>
+  <div class="main-container">
+    <header class="header">
+      <div class="logo">
+        <img id="logo" src="/assets/logo.svg" alt="logo.svg">
+      </div>
+      <nav class="nav">
+        <a href="#sobre-nosotros" class="btn primary">Sobre Nosotros</a>
+        <a href="#menu" class="btn secondary">Menú</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </header>
 
-        <div class="hidden lg:flex gap-20 justify-between items-center">
-            <ul class="flex gap-8">
-                <li class="text-md font-semibold text-white cursor-pointer">Home</li>
-                <li class="text-md font-semibold text-white cursor-pointer">About</li>
-                <li class="text-md font-semibold text-white cursor-pointer">Menu</li>
-                <li class="text-md font-semibold text-white cursor-pointer">Contact</li>
-            </ul>
-            <form class="flex items-center">
-                <input type="text" placeholder="Search"
-                    class="shadow-lg py-1 px-5 border border-gray-300 rounded-l-lg text-white" />
-                <button class="bg-red-500 text-white px-3 py-1.5 rounded-r-lg">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                </button>
-            </form>
-        </div>
-        <div class="hidden lg:flex flex gap-5">
-            <button
-                class="bg-red-500 text-white hover:bg-red-600 px-5 py-2 font-semibold rounded-lg cursor-pointer">Login</button>
-            <button
-                class="border border-white text-white px-5 py-2 font-semibold rounded-lg cursor-pointer hover:opacity-80">SignUp</button>
-        </div>
-    </nav>
-
-    <section
-        class="relative w-full min-h-[90vh] flex flex-col items-center justify-center text-center px-6 lg:px-16 py-16 md:py-32">
-        <!-- Background Image -->
-        <div class="absolute inset-0 bg-cover bg-center"
-            style="background-image: url('https://plus.unsplash.com/premium_photo-1695762436987-1cf827e5f1dd?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fGJ1cmdlcmFpfGVufDB8MHwwfHx8MA%3D%3D');">
-        </div>
-        <div class="absolute inset-0 bg-black opacity-50"></div>
-
-        <!-- Content -->
-        <div class="relative z-10 text-white max-w-2xl">
-            <h1 class="text-4xl md:text-6xl font-bold leading-tight">
-                Welcome to Our Platform
-            </h1>
-            <p class="mt-4 text-lg md:text-xl">
-                Discover amazing features and join us today.
-            </p>
-            <div class="mt-6">
-                <a href="#"
-                    class="group px-6 py-3 bg-red-500 hover:bg-red-600 rounded-lg text-lg font-semibold transition inline-flex items-center">
-                    Get Started
-                    <i class="fa-solid fa-arrow-right ml-2 transition-transform group-hover:translate-x-1"></i>
-                </a>
-            </div>
-
-        </div>
+    <section class="hero">
+      <div class="hero-text">
+        <p>Experimenta una explosión de sabores</p>
+      </div>
     </section>
 
-    <section class="px-8 mt-8">
-       
-        <div class="w-full flex justify-between items-center">
-            <h1 class="text-start font-semibold text-xl md:text-2xl">Popular Dishes</h1>
-            <a href="#" class="px-6 py-3 text-red-500  font-semibold rounded-lg hover:text-red-600 transition">All</a>
+    <section id="sobre-nosotros" class="sobre-nosotros">
+      <h2>Sobre Nosotros</h2>
+      <div class="contenido">
+        <img src="./assets/sobre_nosotros.png" alt="sobre_nosotros.png" />
+        <div class="texto">
+          <p>
+            En Casa Food Guayaquil nos apasiona brindar experiencias culinarias únicas. Combinamos tradición y creatividad
+            para ofrecer platos llenos de sabor y calidad. Nuestro compromiso es con la frescura de los ingredientes, el
+            amor por la cocina y la sonrisa de cada cliente.
+          </p>  
+          <p> Al momento disponemos una gran diversidad de opciones para degustar: </p> 
+          <ul>
+          <li>Postres Varios</li>
+          <li>Comida Gourmet</li>
+          <li>Platos Tradicionales</li>
+          <li>Desayunos</li>
+          </ul>
         </div>
-    
-        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 mt-5">
-            <!-- CARD 1 -->
-            <div class="rounded-lg overflow-hidden border border-gray-300 shadow-lg flex flex-col bg-white">
-                <div class="relative">
-                    <img class="w-full h-56 object-cover"
-                        src="https://images.pexels.com/photos/61180/pexels-photo-61180.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        alt="Simplest Salad Recipe">
-                    <div class="absolute inset-0 bg-black opacity-25 hover:opacity-0 transition"></div>
-                    <div class="text-xs absolute top-2 right-2 bg-red-500 px-3 py-1 text-white rounded-lg">#1</div>
-                </div>
-                <div class="px-6 py-4 flex-grow">
-                    <h2 class="font-semibold text-lg hover:text-red-600 transition">Simplest Salad Recipe</h2>
-                    <p class="text-gray-500 text-sm mt-1">A fresh and healthy salad recipe that's easy to prepare.</p>
-                </div>
-                <div class="px-6 py-3 flex justify-between bg-gray-100">
-                    <button class="px-4 py-2 text-red-500 border border-red-500 rounded-lg hover:bg-red-500 hover:text-white transition">View</button>
-                    <button class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add <i class="fa-solid fa-cart-plus"></i></button>
-                </div>
-            </div>
-    
-            <!-- CARD 2 -->
-            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-300 flex flex-col bg-white">
-                <div class="relative">
-                    <img class="w-full h-56 object-cover"
-                        src="https://images.pexels.com/photos/1600727/pexels-photo-1600727.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        alt="FastFood Ideas">
-                    <div class="absolute inset-0 bg-black opacity-25 hover:opacity-0 transition"></div>
-                    <div class="text-xs absolute top-2 right-2 bg-red-500 px-3 py-1 text-white rounded-lg">#2</div>
-                </div>
-                <div class="px-6 py-4 flex-grow">
-                    <h2 class="font-semibold text-lg hover:text-red-600 transition">Best FastFood Ideas</h2>
-                    <p class="text-gray-500 text-sm mt-1">Quick and delicious fast food ideas to try at home.</p>
-                </div>
-                <div class="px-6 py-3 flex justify-between bg-gray-100">
-                    <button class="px-4 py-2 text-red-500 border border-red-500 rounded-lg hover:bg-red-500 hover:text-white transition">View</button>
-                    <button class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add <i class="fa-solid fa-cart-plus"></i></button>
-                </div>
-            </div>
-    
-            <!-- CARD 3 -->
-            <div class="rounded-lg overflow-hidden shadow-lg border border-gray-300 flex flex-col bg-white">
-                <div class="relative">
-                    <img class="w-full h-56 object-cover"
-                        src="https://images.pexels.com/photos/6086/food-salad-healthy-vegetables.jpg?auto=compress&cs=tinysrgb&dpr=1&w=500"
-                        alt="Why to eat salad?">
-                    <div class="absolute inset-0 bg-black opacity-25 hover:opacity-0 transition"></div>
-                    <div class="text-xs absolute top-2 right-2 bg-red-500 px-3 py-1 text-white rounded-lg">#3</div>
-                </div>
-                <div class="px-6 py-4 flex-grow">
-                    <h2 class="font-semibold text-lg hover:text-red-600 transition">Why to eat salad?</h2>
-                    <p class="text-gray-500 text-sm mt-1">The benefits of including fresh salads in your daily diet.</p>
-                </div>
-                <div class="px-6 py-3 flex justify-between bg-gray-100">
-                    <button class="px-4 py-2 text-red-500 border border-red-500 rounded-lg hover:bg-red-500 hover:text-white transition">View</button>
-                    <button class="px-4 py-2 bg-red-500 text-white rounded-lg hover:bg-red-600 transition">Add <i class="fa-solid fa-cart-plus"></i></button>
-                </div>
-            </div>
-        </div>
-    
-    
+      </div>
     </section>
-    
+
+    <section class="menu-button">
+      <a href="#menu" class="btn primary">Ver Menú</a>
+    </section>
+
+    <section id="menu" class="featured">
+      <h2>Menú</h2>
+      <div class="cards">
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/pastel.png');"></div>
+          <p class="title">Torta Decorada Con Motivo</p>
+          <p class="desc">Una esponjosa y deliciosa torta hecha a medida, decorada cuidadosamente según la ocasión. Ideal para cumpleaños, aniversarios o cualquier celebración especial.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/shawarma.png');"></div>
+          <p class="title">Mix de Shawarma Casero con Tortillas para Tacos, Guacamole y Queso</p>
+          <p class="desc">Una fusión irresistible: shawarma sazonado al estilo casero, acompañado de suaves tortillas, cremoso guacamole y queso fresco. Perfecto para compartir.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/tres_leches.png');"></div>
+          <p class="title">Dulce de Tres Leches</p>
+          <p class="desc">Nuestro clásico postre latino: bizcocho empapado en tres tipos de leche, con cobertura de crema y un toque de canela. Dulce, suave y tradicional.</p>
+        </div>
+        <div class="card">
+          <div class="image" style="background-image: url('./assets/brigadeiros.png');"></div>
+          <p class="title">Brigadeiro de Uva</p>
+          <p class="desc">Una combinación única de uvas frescas cubiertas con dulce de leche condensada y chocolate. Un bocado sofisticado y sorprendente.</p>
+        </div>
+      </div>
+    </section>
+        <section id="contacto" class="featured">
+      <h2>Formulario de Contacto</h2>
+      <form id="contact-form" class="contact-form">
+        <label for="nombre">Nombre:</label>
+        <input type="text" id="nombre" name="nombre" required />
+
+        <label for="correo">Correo Electrónico:</label>
+        <input type="email" id="correo" name="correo" required />
+
+        <label for="tipo">Tipo de Consulta:</label>
+        <select id="tipo" name="tipo" required>
+          <option value="pedido">Pedido</option>
+          <option value="sugerencia">Sugerencia</option>
+          <option value="otro">Otro</option>
+        </select>
+
+        <label for="mensaje">Mensaje:</label>
+        <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+        <button type="submit" class="btn primary">Enviar</button>
+      </form>
+      <div id="respuesta"></div>
+    </section>
+
+    <section id="resumen" class="featured">
+      <h2>Resúmenes de Consultas</h2>
+      <table id="tabla-resumen">
+        <thead>
+          <tr>
+            <th>Nombre</th>
+            <th>Correo</th>
+            <th>Tipo</th>
+            <th>Mensaje</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Datos se insertarán aquí -->
+        </tbody>
+      </table>
+    </section>
+
+  </div>
+  </div>
+   <script>
+      // POST (Formulario)
+      document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+        const data = {
+          nombre: document.getElementById("nombre").value,
+          correo: document.getElementById("correo").value,
+          tipo: document.getElementById("tipo").value,
+          mensaje: document.getElementById("mensaje").value,
+        };
+        fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(data),
+        })
+          .then((response) => response.json())
+          .then((json) => {
+            document.getElementById("respuesta").innerText = "¡Formulario enviado con éxito!";
+            document.getElementById("contact-form").reset();
+          })
+          .catch((err) => {
+            document.getElementById("respuesta").innerText = "Hubo un error al enviar el formulario.";
+          });
+      });
+
+      // GET (Mensajes simulados desde API externa)
+      fetch("https://jsonplaceholder.typicode.com/comments?_limit=5")
+        .then(res => res.json())
+        .then(data => {
+          const tbody = document.querySelector("#tabla-resumen tbody");
+          data.forEach(item => {
+            const fila = document.createElement("tr");
+            fila.innerHTML = `
+              <td>${item.name}</td>
+              <td>${item.email}</td>
+              <td>Otro</td>
+              <td>${item.body}</td>
+            `;
+            tbody.appendChild(fila);
+          });
+        });
+    </script>
 </body>
 
 </html>
