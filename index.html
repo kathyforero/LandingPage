@@ -25,11 +25,16 @@
       <div class="logo">
         <img id="logo" src="/assets/logo.svg" alt="logo.svg">
       </div>
-      <nav class="nav">
+      <nav id="main-nav" class="nav">
         <a href="#sobre-nosotros" class="btn primary">Sobre Nosotros</a>
         <a href="#menu" class="btn secondary">Menú</a>
         <a href="#contacto">Contacto</a>
       </nav>
+      <div class="hamburger-menu">
+        <div class="bar"></div>
+        <div class="bar"></div>
+        <div class="bar"></div>
+      </div>
     </header>
 
     <section class="hero">
@@ -133,6 +138,7 @@
     <script type="module">
         import firebaseApp from './js/firebase.js'; // Importa la instancia de Firebase
         import { handleContactFormSubmit } from './js/functions.js'; // Importa la función de manejo del formulario de contacto
+        import './js/menu.js'; // Importa la lógica del menú de hamburguesa
 
         // Envío de Formulario de Contacto a Firebase
         document.getElementById("contact-form").addEventListener("submit", (event) => handleContactFormSubmit(event, firebaseApp));
