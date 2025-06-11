@@ -278,7 +278,7 @@ body {
   height: auto;
   padding-bottom: 30px;
   margin: 0 auto;
-  overflow: visible;
+  overflow: hidden;
 }
 
 .swiper-slide {
@@ -337,6 +337,7 @@ body {
   top: 50%;
   transform: translateY(-50%);
   z-index: 10;
+  position: absolute;
 }
 
 /* Estilos para los pseudo-elementos de las flechas */
@@ -347,19 +348,17 @@ body {
 }
 
 .swiper-button-prev {
-  left: -50px;
+  left: -4rem; /* Posicionar al borde izquierdo de la sección, fuera de las tarjetas */
 }
 
 .swiper-button-next {
-  right: -50px;
+  right: -4rem; /* Posicionar al borde derecho de la sección, fuera de las tarjetas */
 }
 
 /* Responsive Styles para Swiper */
 @media (min-width: 1024px) {
     .swiper-slide {
-        /* Calcular el ancho para 3 slides con 50px de spaceBetween en 864px de ancho */
-        width: calc((864px - (2 * 50px)) / 3) !important;
-        /* (Ancho_contenedor - (num_espacios * spaceBetween)) / num_slides */
+        /* Removida la regla de width manual, Swiper la maneja con slidesPerView */
     }
 }
 
@@ -389,7 +388,7 @@ body {
     }
 
     .swiper-button-next, .swiper-button-prev {
-        display: none !important;
+        display: none;
     }
 }
 
