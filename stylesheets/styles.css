@@ -334,7 +334,7 @@ body {
 .swiper-button-next,
 .swiper-button-prev {
   --swiper-navigation-color: #e92932 !important;
-  top: 50%;
+  top: calc(50% + 1.4375rem); /* Ajuste para centrar verticalmente con las tarjetas */
   transform: translateY(-50%);
   z-index: 10;
   position: absolute;
