@@ -266,6 +266,7 @@ body {
   margin-top: 2rem;
   padding: 0 3rem;
   position: relative;
+  overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
 }
 
 .reviews-section h2 {
@@ -372,11 +373,19 @@ body {
         padding-bottom: 25px;
     }
 
+    .swiper-slide {
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
+    }
+
     .review-card {
         padding: 1rem;
         min-height: 220px;
         box-sizing: border-box;
-        max-width: unset;
+        max-width: 320px;
+        margin: 0 auto;
+        width: 100%;
     }
 
     .review-card p {
@@ -394,11 +403,18 @@ body {
 
 @media (max-width: 480px) {
     .reviews-section {
-        padding: 0 0.5rem;
+        padding: 0;
+    }
+    .swiper-slide {
+        height: auto;
+        width: 100%;
+        box-sizing: border-box;
     }
     .review-card {
         min-height: 200px;
-        max-width: unset;
+        width: 90%;
+        max-width: 320px;
+        margin: 0 auto;
     }
 }
 
@@ -646,4 +662,10 @@ body {
 @keyframes fadeout {
     from {bottom: 30px; opacity: 1;}
     to {bottom: 0; opacity: 0;}
+}
+
+.table-container {
+    width: 100%;
+    overflow-x: auto; /* Permite el scroll horizontal */
+    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
 }

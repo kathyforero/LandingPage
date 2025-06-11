@@ -88,7 +88,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // when window width is >= 320px
                     320: {
                         slidesPerView: 1,
-                        spaceBetween: 25
+                        spaceBetween: 0
                     },
                     // when window width is >= 768px
                     768: {
@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         spaceBetween: 50
                     }
                 },
-                // centeredSlides: true, // Desactivado temporalmente
+                centeredSlides: false,
             });
         }
     }
