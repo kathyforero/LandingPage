@@ -1,9 +1,17 @@
 /* Reset y fuentes */
+* {
+  box-sizing: border-box;
+}
+
+html,
 body {
   margin: 0;
   font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
   background-color: #fcf8f8;
   color: #1b0e0e;
+  overflow-x: hidden; /* Evita el scroll horizontal en toda la página */
+  min-width: 0; /* Asegura que no haya un ancho mínimo implícito */
+  width: 100vw; /* Fuerza a que ocupe el 100% del viewport */
 }
 
 /* Estructura principal */
@@ -11,13 +19,15 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  overflow-x: hidden; /* Asegura que el contenedor principal no genere scroll */
+  width: 100vw; /* Fuerza a que ocupe el 100% del viewport */
 }
 
 .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 2.5rem;
+  padding: 0.5rem 1rem;
   border-bottom: 1px solid #f3e7e8;
   background-color: #fcf8f8;
   position: relative;
@@ -90,12 +100,21 @@ body {
   width: 80%;
   margin: 1.5rem auto;
   border-radius: 10px;
+  overflow-x: hidden; /* Asegurar que esta sección no desborde horizontalmente */
 }
 
 .menu-button {
   display: flex;
   justify-content: center;
   padding: 1rem;
+}
+
+#menu {
+  padding: 1.5rem;
+  max-width: 960px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  overflow-x: hidden; /* Asegurar que esta sección no desborde horizontalmente */
 }
 
 .featured {
@@ -144,11 +163,15 @@ body {
   color: #994d51;
 }
 
-#contacto.featured {
-  max-width: 1000px;
+#contacto {
+  max-width: 1000px; /* Mantener un max-width adecuado para el formulario */
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 1.5rem; /* Mantener padding original de .featured */
+  margin: 0 auto; /* Centrar la sección */
+  box-sizing: border-box; /* Asegurar que el padding se incluya en el ancho */
+  overflow-x: hidden; /* Asegurar que esta sección no desborde horizontalmente */
 }
 
 .contact-form {
@@ -191,6 +214,7 @@ body {
   max-width: 960px;
   margin: 2rem auto;
   padding: 1rem;
+  overflow-x: hidden; /* Asegurar que esta sección no desborde horizontalmente */
 }
 
 .sobre-nosotros h2 {
@@ -243,28 +267,10 @@ body {
   margin-bottom: 0.5rem;
 }
 
-#tabla-resumen {
-  width: 100%;
-  border-collapse: collapse;
-  margin-top: 1rem;
-}
-
-#tabla-resumen th,
-#tabla-resumen td {
-  border: 1px solid #ddd;
-  padding: 0.5rem;
-  text-align: left;
-}
-
-#tabla-resumen th {
-  background-color: #f3e7e8;
-}
-
 /* Estilos para la sección de reseñas */
 .reviews-section {
   text-align: center;
   margin-top: 2rem;
-  padding: 0 3rem;
   position: relative;
   overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
 }
@@ -280,6 +286,8 @@ body {
   padding-bottom: 30px;
   margin: 0 auto;
   overflow: hidden;
+  box-sizing: border-box; /* Asegurar que el padding se incluya en el ancho */
+  max-width: 100%; /* Asegurar que no exceda el ancho del contenedor */
 }
 
 .swiper-slide {
@@ -363,9 +371,84 @@ body {
     }
 }
 
-@media (max-width: 768px) {
+/* Anular el max-width de .featured para .reviews-section en pantallas más pequeñas */
+@media (max-width: 992px) {
     .reviews-section {
-        padding: 0 1rem;
+        max-width: 100% !important;
+        width: 100% !important;
+        margin: 0 auto;
+        padding: 0 1rem; /* Ajustar padding para estas pantallas */
+    }
+}
+
+@media (max-width: 768px) {
+    /* Header adjustments */
+    .header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0.5rem 1rem;
+    }
+
+    /* Hero section adjustments */
+    .hero {
+        width: 100%; /* Ajustar al 100% del viewport */
+        margin: 1rem auto;
+        height: 200px;
+        font-size: 1.25rem;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        padding: 0 1rem; /* Ajustar padding para pantallas más pequeñas */
+    }
+
+    .hero-text {
+        padding: 0;
+    }
+
+    /* Sobre Nosotros adjustments */
+    .sobre-nosotros {
+        max-width: 100%;
+        width: 100%;
+        margin: 2rem auto;
+        padding: 1rem;
+    }
+
+    /* Menu adjustments */
+    #menu {
+        width: 100%;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    /* Contact form adjustments */
+    #contacto {
+        width: 100%;
+        padding: 1rem;
+        margin: 0 auto;
+    }
+
+    /* Ajustes para la tabla de resumen */
+    #resumen {
+        padding: 1rem; /* Reducir padding en pantallas más pequeñas */
+        width: 100%;
+        max-width: 100%;
+        margin: 0 auto;
+        box-sizing: border-box;
+    }
+
+    #tabla-resumen {
+        display: block;
+        width: 100%; /* Asegurar que la tabla ocupa el 100% del contenedor */
+    }
+
+    #tabla-resumen th,
+    #tabla-resumen td {
+        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
+    }
+
+    .reviews-section {
+        padding: 30px 15px;
     }
 
     .swiper {
@@ -399,11 +482,42 @@ body {
     .swiper-button-next, .swiper-button-prev {
         display: none;
     }
+
+    /* General featured sections padding */
+    .featured {
+        padding: 1rem;
+    }
+
+    /* Cards in Menu section - make them stack vertically or better manage overflow */
+    .cards {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.75rem;
+    }
+
+    .card {
+        min-width: unset;
+        width: 100%;
+        max-width: 200px;
+        margin: 0 auto;
+    }
+
+    .swiper {
+        width: 95%;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
+    }
 }
 
 @media (max-width: 480px) {
     .reviews-section {
-        padding: 0;
+        padding: 0; /* Sin padding en pantallas muy pequeñas */
     }
     .swiper-slide {
         height: auto;
@@ -506,6 +620,7 @@ body {
         align-items: center;
         justify-content: center;
         text-align: center;
+        padding: 0 1rem; /* Ajustar padding para pantallas más pequeñas */
     }
 
     .hero-text {
@@ -532,7 +647,7 @@ body {
     }
 
     /* Contact form adjustments */
-    #contacto.featured {
+    #contacto {
         padding: 1rem;
     }
 
@@ -664,8 +779,13 @@ body {
     to {bottom: 0; opacity: 0;}
 }
 
-.table-container {
-    width: 100%;
-    overflow-x: auto; /* Permite el scroll horizontal */
-    -webkit-overflow-scrolling: touch; /* Mejora el scroll en iOS */
-}
+/* Eliminando estilos de la tabla de resumen */
+/* #tabla-resumen { }
+#tabla-resumen th, #tabla-resumen td { }
+#tabla-resumen th { } */
+
+/* Eliminando estilos de la sección de resumen */
+/* #resumen { } */
+
+/* Eliminando estilos del contenedor de la tabla */
+/* .table-container { } */

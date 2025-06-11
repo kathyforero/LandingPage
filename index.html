@@ -73,7 +73,7 @@
       <a href="#menu" class="btn primary">Ver Menú</a>
     </section>
 
-    <section id="menu" class="featured">
+    <section id="menu">
       <h2>Menú</h2>
       <div class="cards">
         <div class="card">
@@ -100,7 +100,7 @@
     </section>
 
     <!-- Sección de Reseñas -->
-    <section id="reseñas" class="featured reviews-section">
+    <section id="reseñas" class="reviews-section">
       <h2>Lo que dicen nuestros clientes</h2>
       <!-- Swiper -->
       <div class="swiper mySwiper">
@@ -117,7 +117,7 @@
     </section>
     <!-- Fin Sección de Reseñas -->
 
-    <section id="contacto" class="featured">
+    <section id="contacto">
       <h2>Formulario de Contacto</h2>
       <form id="contact-form" class="contact-form">
         <label for="nombre">Nombre:</label>
@@ -141,25 +141,6 @@
       <div id="respuesta"></div>
     </section>
 
-    <section id="resumen" class="featured">
-      <h2>Resúmenes de Consultas</h2>
-      <div class="table-container">
-        <table id="tabla-resumen">
-          <thead>
-            <tr>
-              <th>Nombre</th>
-              <th>Correo</th>
-              <th>Tipo</th>
-              <th>Mensaje</th>
-            </tr>
-          </thead>
-          <tbody>
-            <!-- Datos se insertarán aquí -->
-          </tbody>
-        </table>
-      </div>
-    </section>
-
   </div>
     <script type="module">
         import firebaseApp from './js/firebase.js'; // Importa la instancia de Firebase
@@ -170,25 +151,6 @@
 
         // Envío de Formulario de Contacto a Firebase
         document.getElementById("contact-form").addEventListener("submit", (event) => handleContactFormSubmit(event, firebaseApp));
-
-        // Lógica para cargar y mostrar mensajes de contacto en la tabla
-        const tablaResumenBody = document.querySelector('#tabla-resumen tbody');
-        const contactMessagesRef = firebaseApp.getDbRef('contact_messages');
-
-        onValue(contactMessagesRef, (snapshot) => {
-            tablaResumenBody.innerHTML = ''; // Limpia la tabla antes de añadir nuevos datos
-            snapshot.forEach((childSnapshot) => {
-                const message = childSnapshot.val();
-                const row = document.createElement('tr');
-                row.innerHTML = `
-                    <td>${message.nombre}</td>
-                    <td>${message.correo}</td>
-                    <td>${message.tipo}</td>
-                    <td>${message.mensaje}</td>
-                `;
-                tablaResumenBody.appendChild(row);
-            });
-        });
 
     </script>
 

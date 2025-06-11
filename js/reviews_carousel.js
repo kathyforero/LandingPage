@@ -101,7 +101,7 @@ document.addEventListener('DOMContentLoaded', () => {
                         spaceBetween: 50
                     }
                 },
-                centeredSlides: false,
+                centeredSlides: true,
             });
         }
     }
@@ -129,6 +129,13 @@ document.addEventListener('DOMContentLoaded', () => {
         console.error("Error al cargar las reseñas desde Firebase:", error);
         if (swiperWrapper) {
             swiperWrapper.innerHTML = '<p>Error al cargar las reseñas.</p>';
+        }
+    });
+
+    // Añadir listener para actualizar Swiper en el redimensionamiento de la ventana
+    window.addEventListener('resize', () => {
+        if (mySwiper) {
+            mySwiper.update();
         }
     });
 
