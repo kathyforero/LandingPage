@@ -52,6 +52,14 @@ body {
   display: flex;
   align-items: center;
   gap: 1rem;
+  margin-left: auto;
+  position: static;
+  box-shadow: none;
+  padding: 0;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+  margin-right: 1rem;
 }
 
 .nav a {
@@ -225,37 +233,20 @@ body {
 
 .sobre-nosotros .contenido {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   gap: 1rem;
 }
 
-@media (min-width: 768px) {
-  .sobre-nosotros .contenido {
-    flex-direction: row;
-    align-items: center;
-  }
-
-  .sobre-nosotros .contenido img {
-    max-width: 35%;
-    border-radius: 0.75rem;
-  }
-
-  .sobre-nosotros .contenido .texto {
-    flex: 1;
-    font-size: 1rem;
-    line-height: 1.6;
-  }
+.sobre-nosotros .contenido img {
+  max-width: 35%;
+  border-radius: 0.75rem;
 }
 
-@media (max-width: 767px) {
-  .sobre-nosotros .contenido img {
-    width: 100%;
-    border-radius: 0.75rem;
-  }
-
-  .sobre-nosotros .contenido .texto {
-    font-size: 0.95rem;
-  }
+.sobre-nosotros .contenido .texto {
+  flex: 1;
+  font-size: 1.2rem;
+  line-height: 1.6;
 }
 
 .sobre-nosotros ul {
@@ -272,7 +263,6 @@ body {
   text-align: center;
   margin-top: 2rem;
   position: relative;
-  overflow-x: hidden; /* Asegura que no haya desbordamiento horizontal */
 }
 
 .reviews-section h2 {
@@ -281,11 +271,10 @@ body {
 
 /* Estilos para Swiper.js */
 .swiper {
-  width: 100%;
+  width: 70%;
   height: auto;
   padding-bottom: 30px;
   margin: 0 auto;
-  overflow: hidden;
   box-sizing: border-box; /* Asegurar que el padding se incluya en el ancho */
   max-width: 100%; /* Asegurar que no exceda el ancho del contenedor */
 }
@@ -357,24 +346,32 @@ body {
 }
 
 .swiper-button-prev {
-  left: -4rem; /* Posicionar al borde izquierdo de la sección, fuera de las tarjetas */
+  left: 8%; /* Aumentado para mayor visibilidad */
 }
 
 .swiper-button-next {
-  right: -4rem; /* Posicionar al borde derecho de la sección, fuera de las tarjetas */
+  right: 8%; /* Aumentado para mayor visibilidad */
 }
 
 /* Anular el max-width de .featured para .reviews-section en pantallas más pequeñas */
-@media (max-width: 992px) {
-    .reviews-section {
-        max-width: 60% !important;
-        width: 60% !important;
-        margin: 0 auto;
-        padding: 0 1rem; /* Ajustar padding para estas pantallas */
-    }
-}
 
-@media (max-width: 768px) {
+  @media (max-width: 768px) {
+    h2{
+      font-size: 2.3rem;
+      text-align: center;
+    }
+    .sobre-nosotros h2{
+      font-size: 2.3rem;
+      text-align: center;
+    }
+
+    .h2{
+      font-size: 2.3rem;
+      text-align: center;
+    }
+
+
+
     /* Header adjustments */
     .header {
         flex-direction: row;
@@ -385,8 +382,8 @@ body {
 
     /* Hero section adjustments */
     .hero {
-        width: 100%; /* Ajustar al 100% del viewport */
-        margin: 1rem auto;
+        width: 95%; /* Ajustar al 100% del viewport */
+        margin: 0.5rem auto;
         height: 200px;
         font-size: 1.25rem;
         align-items: center;
@@ -401,18 +398,39 @@ body {
 
     /* Sobre Nosotros adjustments */
     .sobre-nosotros {
-        max-width: 100%;
-        width: 100%;
-        margin: 2rem auto;
+        max-width: 90%;
+        width: 90%;
+        margin: 0 auto;
         padding: 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
     }
+
+    .sobre-nosotros .contenido {
+        flex-direction: column;
+        min-width: 100%;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .sobre-nosotros .contenido img {
+        max-width: 80%;
+    }
+    
 
     /* Menu adjustments */
     #menu {
         width: 100%;
         padding: 1rem;
         margin: 0 auto;
+
     }
+    
+    
+
 
     /* Contact form adjustments */
     #contacto {
@@ -430,22 +448,12 @@ body {
         box-sizing: border-box;
     }
 
-    #tabla-resumen {
-        display: block;
-        width: 100%; /* Asegurar que la tabla ocupa el 100% del contenedor */
-    }
-
-    #tabla-resumen th,
-    #tabla-resumen td {
-        white-space: nowrap; /* Evita que el texto se rompa en varias líneas */
-    }
-
     .reviews-section {
         padding: 30px 15px;
     }
 
     .swiper {
-        width: 60%;
+        width: 100%;
         padding-bottom: 25px;
     }
 
@@ -465,15 +473,15 @@ body {
     }
 
     .review-card p {
-        font-size: 0.9rem;
+        font-size: 1.1rem;
+    }
+
+    .contact-form label{
+      font-size: 1.1rem;
     }
 
     .stars {
         font-size: 1rem;
-    }
-
-    .swiper-button-next, .swiper-button-prev {
-        display: none;
     }
 
     /* General featured sections padding */
@@ -485,200 +493,49 @@ body {
     .cards {
         flex-wrap: wrap;
         justify-content: center;
-        gap: 0.75rem;
+        gap: 1rem;
     }
 
     .card {
         min-width: unset;
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
+        max-width: 80%;
+        margin: 2rem auto;
+
+    }
+
+    .card .title{
+      font-size: 1.5rem;
+    }
+
+    .card .desc{
+      font-size: 1.2rem;
     }
 
     .swiper {
-        width: 95%;
+        width: 90%;
     }
 
     .swiper-slide {
         height: auto;
-    }
-
-    .swiper-button-next, .swiper-button-prev {
-        display: none;
-    }
-}
-
-@media (max-width: 480px) {
-    .reviews-section {
-        padding: 0; /* Sin padding en pantallas muy pequeñas */
-    }
-    .swiper-slide {
-        height: auto;
-        width: 100%;
-        box-sizing: border-box;
-    }
-    .review-card {
-        min-height: 200px;
-        width: 90%;
-        max-width: 320px;
         margin: 0 auto;
     }
-}
 
-/* Media Queries - Desktop First Approach */
-/* Large Screens (>=1024px) */
-@media (min-width: 1024px) {
-    .swiper {
-        width: 100%;
-        max-width: 960px;
-    }
-}
-
-/* Medium Screens (>=769px and <1024px) */
-@media (min-width: 769px) and (max-width: 1023px) {
-    .swiper {
-        width: 80%;
-        max-width: 800px;
+    /* Estilos para los pseudo-elementos de las flechas */
+    .swiper-button-next::after,
+    .swiper-button-prev::after {
+        color: #e92932 !important;
+        font-size: 1.8rem !important;
     }
 
-    .nav {
-        display: flex !important;
-        position: static;
-        box-shadow: none;
-        padding: 0;
-        transform: none;
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    .nav a:last-child {
-        margin-right: 0.5rem;
-    }
-
-    .hamburger-menu {
-        display: none;
-    }
-}
-
-/* Tablet Screens (>=481px and <=768px) */
-@media (min-width: 481px) and (max-width: 768px) {
-    /* Header */
-    .header {
-        flex-direction: row;
-        justify-content: space-between;
-        align-items: center;
-        padding: 0.5rem 1rem;
-    }
-
-    /* Navigation */
-    .nav {
-        display: none;
-        flex-direction: column;
-        position: absolute;
-        top: 100%;
-        left: 0;
-        width: 100%;
-        background-color: #fcf8f8;
-        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-        padding: 1rem 0;
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
-        transition: transform 0.3s ease-out, opacity 0.3s ease-out;
-        transform: translateY(-100%);
-        opacity: 0;
-        pointer-events: none;
-    }
-
-    .nav.active {
-        display: flex;
-        transform: translateY(0);
-        opacity: 1;
-        pointer-events: auto;
-    }
-
-    /* Hero Section */
-    .hero {
-        width: 90%;
-        margin: 1rem auto;
-        height: 200px;
-        font-size: 1.25rem;
-        padding: 0 1rem;
-    }
-
-    /* Reviews Section */
-    .reviews-section {
-        max-width: 80% !important;
-        width: 80% !important;
-        margin: 0 auto;
-        padding: 0 1rem;
-    }
-
-    .swiper {
-        width: 90%;
-        padding-bottom: 25px;
-    }
-
-    .swiper-button-next,
     .swiper-button-prev {
-        display: none;
+      left: 1%; /* Aumentado para mayor visibilidad */
     }
 
-    /* Cards Layout */
-    .cards {
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 0.75rem;
+    .swiper-button-next {
+      right: 1%; /* Aumentado para mayor visibilidad */
     }
 
-    .card {
-        min-width: unset;
-        width: 100%;
-        max-width: 200px;
-        margin: 0 auto;
-    }
-}
 
-/* Mobile Screens (<=480px) */
-@media (max-width: 480px) {
-    .header {
-        padding: 0.5rem;
-    }
-
-    .hero {
-        width: 95%;
-        font-size: 1rem;
-        height: 150px;
-    }
-
-    .nav a {
-        font-size: 0.8rem;
-    }
-
-    .reviews-section {
-        max-width: 95% !important;
-        width: 95% !important;
-        padding: 0;
-    }
-
-    .swiper {
-        width: 95%;
-    }
-
-    .review-card {
-        min-height: 200px;
-        width: 90%;
-        max-width: 320px;
-        margin: 0 auto;
-    }
-
-    .card {
-        max-width: 180px;
-    }
-
-    .swiper-button-next,
-    .swiper-button-prev {
-        display: none;
-    }
 }
 
 /* Toast Notification */
@@ -746,5 +603,75 @@ body {
 /* Eliminando estilos de la sección de resumen */
 /* #resumen { } */
 
-/* Eliminando estilos del contenedor de la tabla */
-/* .table-container { } */
+/* Footer Styles */
+.footer {
+  background-color: #1b0e0e;
+  color: #fcf8f8;
+  padding: 0.5rem 4rem; /* Cambiado para PC */
+  text-align: center;
+  display: flex;
+  flex-direction: row; /* Cambiado para PC - horizontal */
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between; /* Espacio entre secciones en PC */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem; /* Espacio entre los elementos de la sección (logo, título, links) */
+}
+
+.footer-social-links,
+.footer-developer-links {
+  display: flex;
+  gap: 2rem; /* Cambiado para PC */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social-links a,
+.footer-developer-links a {
+  color: #fcf8f8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social-links a:hover,
+.footer-developer-links a:hover {
+  color: #e92932; /* Color de acento al pasar el ratón */
+}
+
+.footer-social-links img,
+.footer-developer-links img {
+  width: 32px; /* Aumentado para mayor visibilidad */
+  height: 32px; /* Aumentado para mayor visibilidad */
+  filter: invert(100%); /* Invierte el color de las imágenes (negro a blanco) */
+  transition: filter 0.3s ease;
+}
+
+.footer-social-links a:hover img,
+.footer-developer-links a:hover img {
+  filter: invert(50%) sepia(1) saturate(5) hue-rotate(330deg); /* Color de acento al pasar el ratón para las imágenes */
+}
+
+.footer-section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #f3e7e8;
+}
+
+.footer-logo {
+  width: auto; /* Ajustar ancho automáticamente */
+  height: auto; /* Ajustar altura automáticamente */
+  max-height: 80px; /* Altura máxima de 100px */
+  vertical-align: middle;
+  margin: 0; /* Sin margen inferior en PC */
+}
