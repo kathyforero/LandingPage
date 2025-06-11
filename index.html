@@ -130,51 +130,22 @@
     </section>
 
   </div>
-  </div>
-   <script>
-      // POST (Formulario)
-      document.getElementById("contact-form").addEventListener("submit", function (e) {
-        e.preventDefault();
-        const data = {
-          nombre: document.getElementById("nombre").value,
-          correo: document.getElementById("correo").value,
-          tipo: document.getElementById("tipo").value,
-          mensaje: document.getElementById("mensaje").value,
-        };
-        fetch("https://jsonplaceholder.typicode.com/posts", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(data),
-        })
-          .then((response) => response.json())
-          .then((json) => {
-            document.getElementById("respuesta").innerText = "¡Formulario enviado con éxito!";
-            document.getElementById("contact-form").reset();
-          })
-          .catch((err) => {
-            document.getElementById("respuesta").innerText = "Hubo un error al enviar el formulario.";
-          });
-      });
+    <script type="module">
+        import firebaseApp from './js/firebase.js'; // Importa la instancia de Firebase
+        import { handleContactFormSubmit } from './js/functions.js'; // Importa la función de manejo del formulario de contacto
 
-      // GET (Mensajes simulados desde API externa)
-      fetch("https://jsonplaceholder.typicode.com/comments?_limit=5")
-        .then(res => res.json())
-        .then(data => {
-          const tbody = document.querySelector("#tabla-resumen tbody");
-          data.forEach(item => {
-            const fila = document.createElement("tr");
-            fila.innerHTML = `
-              <td>${item.name}</td>
-              <td>${item.email}</td>
-              <td>Otro</td>
-              <td>${item.body}</td>
-            `;
-            tbody.appendChild(fila);
-          });
-        });
+        // Envío de Formulario de Contacto a Firebase
+        document.getElementById("contact-form").addEventListener("submit", (event) => handleContactFormSubmit(event, firebaseApp));
+
+        // NOTA: El código para la tabla de resumen y el carrusel de reseñas ha sido omitido por ahora, según lo solicitado.
+        // Se puede añadir más adelante si es necesario.
+
     </script>
+
+    <div id="toast-notification" class="toast-hidden">
+      <span id="toast-message"></span>
+    </div>
+
 </body>
 
 </html>
