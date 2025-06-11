@@ -9,7 +9,6 @@ body {
   font-family: 'Plus Jakarta Sans', 'Noto Sans', sans-serif;
   background-color: #fcf8f8;
   color: #1b0e0e;
-  overflow-x: hidden; /* Evita el scroll horizontal en toda la página */
   min-width: 0; /* Asegura que no haya un ancho mínimo implícito */
   width: 100vw; /* Fuerza a que ocupe el 100% del viewport */
 }
@@ -19,7 +18,6 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
-  overflow-x: hidden; /* Asegura que el contenedor principal no genere scroll */
   width: 100vw; /* Fuerza a que ocupe el 100% del viewport */
 }
 
@@ -353,9 +351,86 @@ body {
   right: 8%; /* Aumentado para mayor visibilidad */
 }
 
+
+/* Footer Styles */
+.footer {
+  background-color: #1b0e0e;
+  width: 100%;
+  min-width: 100%;
+  color: #fcf8f8;
+    padding: 0.5rem 4rem; /* Cambiado para PC */
+  text-align: center;
+  display: flex;
+  flex-direction: row; /* Cambiado para PC - horizontal */
+  gap: 1.5rem;
+  align-items: center;
+  justify-content: space-between; /* Espacio entre secciones en PC */
+}
+
+.footer-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.75rem; /* Espacio entre los elementos de la sección (logo, título, links) */
+}
+
+.footer-social-links,
+.footer-developer-links {
+  display: flex;
+  gap: 2rem; /* Cambiado para PC */
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.footer-social-links a,
+.footer-developer-links a {
+  color: #fcf8f8;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  transition: color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.footer-social-links a:hover,
+.footer-developer-links a:hover {
+  color: #e92932; /* Color de acento al pasar el ratón */
+}
+
+.footer-social-links img,
+.footer-developer-links img {
+  width: 32px; /* Aumentado para mayor visibilidad */
+  height: 32px; /* Aumentado para mayor visibilidad */
+  filter: invert(100%); /* Invierte el color de las imágenes (negro a blanco) */
+  transition: filter 0.3s ease;
+}
+
+.footer-social-links a:hover img,
+.footer-developer-links a:hover img {
+  filter: invert(50%) sepia(1) saturate(5) hue-rotate(330deg); /* Color de acento al pasar el ratón para las imágenes */
+}
+
+.footer-section-title {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.2rem;
+  color: #f3e7e8;
+}
+
+.footer-logo {
+  width: auto; /* Ajustar ancho automáticamente */
+  height: auto; /* Ajustar altura automáticamente */
+  max-height: 80px; /* Altura máxima de 100px */
+  vertical-align: middle;
+  margin: 0; /* Sin margen inferior en PC */
+}
+
+
 /* Anular el max-width de .featured para .reviews-section en pantallas más pequeñas */
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     h2{
       font-size: 2.3rem;
       text-align: center;
@@ -536,6 +611,53 @@ body {
     }
 
 
+    .footer {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+    }
+
+    .footer-section {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-section.a {
+      font-size: 1.2rem;
+      padding: 0;
+      margin: 0;
+    }
+
+    .footer-social-links,
+    .footer-developer-links {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-social-links a,
+    .footer-developer-links a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .footer-section:last-child {
+        margin-bottom: 0;
+    }
+
+    .footer-logo {
+        max-height: 60px;
+        max-width: 60px;
+        filter: brightness(0) invert(1);
+    }
+
 }
 
 /* Toast Notification */
@@ -602,76 +724,3 @@ body {
 
 /* Eliminando estilos de la sección de resumen */
 /* #resumen { } */
-
-/* Footer Styles */
-.footer {
-  background-color: #1b0e0e;
-  color: #fcf8f8;
-  padding: 0.5rem 4rem; /* Cambiado para PC */
-  text-align: center;
-  display: flex;
-  flex-direction: row; /* Cambiado para PC - horizontal */
-  gap: 1.5rem;
-  align-items: center;
-  justify-content: space-between; /* Espacio entre secciones en PC */
-}
-
-.footer-section {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 0.75rem; /* Espacio entre los elementos de la sección (logo, título, links) */
-}
-
-.footer-social-links,
-.footer-developer-links {
-  display: flex;
-  gap: 2rem; /* Cambiado para PC */
-  flex-wrap: wrap;
-  justify-content: center;
-}
-
-.footer-social-links a,
-.footer-developer-links a {
-  color: #fcf8f8;
-  text-decoration: none;
-  font-weight: 500;
-  font-size: 0.9rem;
-  transition: color 0.3s ease;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.footer-social-links a:hover,
-.footer-developer-links a:hover {
-  color: #e92932; /* Color de acento al pasar el ratón */
-}
-
-.footer-social-links img,
-.footer-developer-links img {
-  width: 32px; /* Aumentado para mayor visibilidad */
-  height: 32px; /* Aumentado para mayor visibilidad */
-  filter: invert(100%); /* Invierte el color de las imágenes (negro a blanco) */
-  transition: filter 0.3s ease;
-}
-
-.footer-social-links a:hover img,
-.footer-developer-links a:hover img {
-  filter: invert(50%) sepia(1) saturate(5) hue-rotate(330deg); /* Color de acento al pasar el ratón para las imágenes */
-}
-
-.footer-section-title {
-  font-size: 1.1rem;
-  font-weight: bold;
-  margin-bottom: 0.5rem;
-  color: #f3e7e8;
-}
-
-.footer-logo {
-  width: auto; /* Ajustar ancho automáticamente */
-  height: auto; /* Ajustar altura automáticamente */
-  max-height: 80px; /* Altura máxima de 100px */
-  vertical-align: middle;
-  margin: 0; /* Sin margen inferior en PC */
-}
