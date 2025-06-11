@@ -15,8 +15,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Plus+Jakarta+Sans:wght@400;700&display=swap" rel="stylesheet">
 
-  <!-- Custom CSS -->
+  <!-- Script para importar Swiper CSS y JS (mover arriba) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
+  <!-- Custom CSS (cargar después de Swiper) -->
   <link rel="stylesheet" href="./stylesheets/styles.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
 </head>
 
 <body>
@@ -93,7 +98,26 @@
         </div>
       </div>
     </section>
-        <section id="contacto" class="featured">
+
+    <!-- Sección de Reseñas -->
+    <section id="reseñas" class="featured reviews-section">
+      <h2>Lo que dicen nuestros clientes</h2>
+      <!-- Swiper -->
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <!-- Las reseñas se cargarán aquí dinámicamente en swiper-slide -->
+        </div>
+        <!-- Add Pagination -->
+        <div class="swiper-pagination"></div>
+        <!-- Add Navigation -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+      </div>
+      <!-- Fin Swiper -->
+    </section>
+    <!-- Fin Sección de Reseñas -->
+
+    <section id="contacto" class="featured">
       <h2>Formulario de Contacto</h2>
       <form id="contact-form" class="contact-form">
         <label for="nombre">Nombre:</label>
@@ -139,13 +163,12 @@
         import firebaseApp from './js/firebase.js'; // Importa la instancia de Firebase
         import { handleContactFormSubmit } from './js/functions.js'; // Importa la función de manejo del formulario de contacto
         import './js/menu.js'; // Importa la lógica del menú de hamburguesa
+        import './js/reviews_carousel.js'; // Este archivo lo adaptaremos para Swiper
 
         // Envío de Formulario de Contacto a Firebase
         document.getElementById("contact-form").addEventListener("submit", (event) => handleContactFormSubmit(event, firebaseApp));
 
-        // NOTA: El código para la tabla de resumen y el carrusel de reseñas ha sido omitido por ahora, según lo solicitado.
-        // Se puede añadir más adelante si es necesario.
-
+        // NOTA: El código para la tabla de resumen ha sido omitido por ahora.
     </script>
 
     <div id="toast-notification" class="toast-hidden">

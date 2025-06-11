@@ -99,7 +99,7 @@ body {
 }
 
 .featured {
-  padding: 1rem;
+  padding: 1.5rem;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -262,114 +262,145 @@ body {
 
 /* Estilos para la sección de reseñas */
 .reviews-section {
-    padding: 50px 20px;
-    text-align: center;
-    background-color: #f9f9f9;
+  text-align: center;
+  margin-top: 2rem;
+  padding: 0 3rem;
+  position: relative;
 }
 
 .reviews-section h2 {
-    margin-bottom: 40px;
-    color: #333;
+  margin-bottom: 1.5rem;
 }
 
-.carousel-container {
-    position: relative;
-    width: 80%; /* Ajusta el ancho según sea necesario */
-    margin: 0 auto;
-    overflow: hidden;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Estilos para Swiper.js */
+.swiper {
+  width: 100%;
+  height: auto;
+  padding-bottom: 30px;
+  margin: 0 auto;
+  overflow: visible;
 }
 
-.carousel-track {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
+.swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: auto;
 }
 
 .review-card {
-    flex: 0 0 100%; /* Cada tarjeta ocupa el 100% del ancho del contenedor */
-    padding: 30px;
-    background-color: #fff;
-    border-radius: 8px;
-    box-sizing: border-box;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 200px;
+  width: 100%;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 .review-card p {
-    font-size: 1.1em;
-    color: #555;
-    margin-bottom: 15px;
-    line-height: 1.6;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  margin-top: 0.75rem;
+  margin-bottom: 1rem;
+  color: #1b0e0e;
+  flex-grow: 1;
 }
 
 .review-card .author {
-    font-weight: bold;
-    color: #333;
-    font-size: 1em;
+  font-weight: bold;
+  font-size: 0.875rem;
+  color: #e92932;
+  margin-top: auto;
 }
 
-.carousel-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    border: none;
-    padding: 10px 15px;
-    cursor: pointer;
-    font-size: 1.5em;
-    border-radius: 50%;
-    z-index: 10;
-    transition: background-color 0.3s ease;
+.stars {
+  color: #e92932;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
 }
 
-.carousel-button:hover {
-    background-color: rgba(0, 0, 0, 0.7);
+/* Paginación de Swiper */
+.swiper-pagination-bullet {
+  background: #e92932 !important;
 }
 
-.carousel-button.prev {
-    left: 10px;
+/* Navegación de Swiper */
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: #e92932 !important;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
 }
 
-.carousel-button.next {
-    right: 10px;
+/* Estilos para los pseudo-elementos de las flechas */
+.swiper-button-next::after,
+.swiper-button-prev::after {
+    color: #e92932 !important;
+    font-size: 1.8rem !important;
 }
 
-/* Estilos para la notificación Toast */
-#toast-notification {
-    visibility: hidden; /* Oculto por defecto */
-    min-width: 250px;
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    border-radius: 8px;
-    padding: 16px;
-    position: fixed;
-    z-index: 1;
-    left: 50%;
-    transform: translateX(-50%); /* ¡Esta es la clave para centrarlo! */
-    bottom: 30px;
-    font-size: 17px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s ease-in-out;
+.swiper-button-prev {
+  left: -50px;
 }
 
-#toast-notification.toast-show {
-    visibility: visible;
-    opacity: 1;
+.swiper-button-next {
+  right: -50px;
 }
 
-#toast-notification.toast-error {
-    background-color: #e92932; /* Color para mensajes de error */
+/* Responsive Styles para Swiper */
+@media (min-width: 1024px) {
+    .swiper-slide {
+        /* Calcular el ancho para 3 slides con 50px de spaceBetween en 864px de ancho */
+        width: calc((864px - (2 * 50px)) / 3) !important;
+        /* (Ancho_contenedor - (num_espacios * spaceBetween)) / num_slides */
+    }
 }
 
-#toast-notification.toast-success {
-    background-color: #4CAF50; /* Color para mensajes de éxito */
+@media (max-width: 768px) {
+    .reviews-section {
+        padding: 0 1rem;
+    }
+
+    .swiper {
+        width: 100%;
+        padding-bottom: 25px;
+    }
+
+    .review-card {
+        padding: 1rem;
+        min-height: 220px;
+        box-sizing: border-box;
+        max-width: unset;
+    }
+
+    .review-card p {
+        font-size: 0.9rem;
+    }
+
+    .stars {
+        font-size: 1rem;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .reviews-section {
+        padding: 0 0.5rem;
+    }
+    .review-card {
+        min-height: 200px;
+        max-width: unset;
+    }
 }
 
 /* Media queries para responsividad */
@@ -495,13 +526,16 @@ body {
         padding: 30px 15px;
     }
 
-    .carousel-container {
+    .swiper {
         width: 95%;
     }
 
-    .carousel-button {
-        padding: 8px 12px;
-        font-size: 1.2em;
+    .swiper-slide {
+        height: auto;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
     }
 }
 
@@ -545,7 +579,15 @@ body {
         padding: 20px 10px;
     }
 
-    .carousel-container {
+    .swiper {
         width: 100%;
+    }
+
+    .swiper-slide {
+        height: auto;
+    }
+
+    .swiper-button-next, .swiper-button-prev {
+        display: none;
     }
 }
