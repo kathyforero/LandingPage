@@ -162,13 +162,32 @@
     <script type="module">
         import firebaseApp from './js/firebase.js'; // Importa la instancia de Firebase
         import { handleContactFormSubmit } from './js/functions.js'; // Importa la función de manejo del formulario de contacto
+        import { onValue } from 'firebase/database'; // Importa onValue para escuchar cambios en la base de datos
         import './js/menu.js'; // Importa la lógica del menú de hamburguesa
         import './js/reviews_carousel.js'; // Este archivo lo adaptaremos para Swiper
 
         // Envío de Formulario de Contacto a Firebase
         document.getElementById("contact-form").addEventListener("submit", (event) => handleContactFormSubmit(event, firebaseApp));
 
-        // NOTA: El código para la tabla de resumen ha sido omitido por ahora.
+        // Lógica para cargar y mostrar mensajes de contacto en la tabla
+        const tablaResumenBody = document.querySelector('#tabla-resumen tbody');
+        const contactMessagesRef = firebaseApp.getDbRef('contact_messages');
+
+        onValue(contactMessagesRef, (snapshot) => {
+            tablaResumenBody.innerHTML = ''; // Limpia la tabla antes de añadir nuevos datos
+            snapshot.forEach((childSnapshot) => {
+                const message = childSnapshot.val();
+                const row = document.createElement('tr');
+                row.innerHTML = `
+                    <td>${message.nombre}</td>
+                    <td>${message.correo}</td>
+                    <td>${message.tipo}</td>
+                    <td>${message.mensaje}</td>
+                `;
+                tablaResumenBody.appendChild(row);
+            });
+        });
+
     </script>
 
     <div id="toast-notification" class="toast-hidden">
