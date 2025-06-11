@@ -681,6 +681,10 @@ body {
         pointer-events: auto;
     }
 
+    .nav a:last-child {
+        margin-right: 0.5rem; /* Añadir un margen derecho al último elemento del menú */
+    }
+
     .hamburger-menu {
         display: none;
     }
