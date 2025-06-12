@@ -6,15 +6,6 @@ document.addEventListener('DOMContentLoaded', () => {
     let reviews = [];
     let mySwiper = null; // Variable para almacenar la instancia de Swiper
 
-    // Reseñas dummy para mostrar si no hay datos en Firebase
-    const dummyReviews = [
-        { name: "Ana Torres", rating: 5, message: "¡Una experiencia culinaria excepcional! Cada plato es una obra de arte y el sabor inigualable. Volveré sin duda." },
-        { name: "Carlos Mendoza", rating: 4, message: "Excelente servicio y ambiente acogedor. El postre de tres leches es una maravilla. ¡Muy recomendable!" },
-        { name: "Sofía Vargas", rating: 5, message: "Me encantó el mix de shawarma, fresco y delicioso. La atención al cliente es de primera. ¡Mi nuevo lugar favorito en Guayaquil!" },
-        { name: "Ricardo León", rating: 4, message: "Probé la torta decorada y superó mis expectativas. Ideal para cualquier celebración. El menú es muy variado." },
-        { name: "Elena Gómez", rating: 5, message: "Los brigadeiros de uva son una sorpresa deliciosa. Un lugar con encanto y comida que te hace sentir como en casa. ¡Impecable!" }
-    ];
-
     // Función para generar estrellas
     function generateStars(rating) {
         let starsHtml = '';
